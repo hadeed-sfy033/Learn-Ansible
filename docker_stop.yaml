@@ -1,6 +1,6 @@
 ---
 - name: Stop Docker container and remove mount directory
-  hosts: ec2_instances
+  hosts: all
   become: true
   vars:
     container_name: hadeed_container1
