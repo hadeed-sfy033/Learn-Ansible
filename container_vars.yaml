@@ -1,0 +1,5 @@
+---
+container_name: hadeed_container1
+container_port: 8020
+container_image: nginx
+
