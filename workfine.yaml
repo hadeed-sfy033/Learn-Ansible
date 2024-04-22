@@ -1,0 +1,19 @@
+---
+- name: Stop Docker container and remove mount directory
+  hosts: all
+  become: true
+  vars:
+    container_name: hadeed_container1
+    container_port: 8020
+    container_image: nginx
+  tasks:
+    - name: Stop Docker container
+      docker_container:
+        name: "{{ container_name }}"
+        state: stopped
+      ignore_errors: yes
+
+    - name: Remove mount directory
+      file:
+        path: "/opt/{{ container_name }}"
+        state: absent
