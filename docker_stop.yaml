@@ -1,0 +1,19 @@
+---
+- name: Stop Docker container and remove mount directory
+  hosts: ec2_instances
+  become: true
+  vars_files:
+    - container_vars.yaml
+  tasks:
+    - name: Stop Docker container
+      docker_container:
+        name: "{{ container_name }}"
+        state: stopped
+      ignore_errors: yes
+
+    - name: Remove mount directory
+      file:
+        path: "/opt/{{ container_name }}"
+        state: absent
+
+
