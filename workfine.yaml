@@ -1,6 +1,6 @@
 ---
 - name: Stop Docker container and remove mount directory
-  hosts: all
+  hosts: localserver
   become: true
   vars:
     container_name: hadeed_container1
